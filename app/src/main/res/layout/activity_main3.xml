@@ -140,6 +140,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintVertical_bias="0.068"
+        android:onClick="Click"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
