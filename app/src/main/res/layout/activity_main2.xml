@@ -172,31 +172,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         tools:ignore="MissingConstraints" />
 
-    <EditText
-        android:id="@+id/editTextTextPassword2"
-        android:layout_width="257dp"
-        android:layout_height="54dp"
-        android:ems="10"
-        android:hint="Confirm password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="1.0" />
 
-    <ImageButton
-        android:layout_width="30dp"
-        android:layout_height="25dp"
-        android:background="@drawable/vector"
-        android:contentDescription="1"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword"
-        app:layout_constraintHorizontal_bias="0.974"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.489"
-        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -279,5 +255,29 @@
         app:layout_constraintEnd_toEndOf="@+id/imageButton2"
         app:layout_constraintStart_toStartOf="@+id/imageButton2"
         app:layout_constraintTop_toTopOf="@+id/imageButton2" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress2"
+        android:layout_width="257dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+    <EditText
+        android:id="@+id/editTextNumberPassword"
+        android:layout_width="260dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:inputType="numberPassword"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.611" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
