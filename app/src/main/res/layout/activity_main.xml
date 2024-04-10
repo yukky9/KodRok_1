@@ -181,11 +181,10 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView20"
         android:layout_width="131dp"
         android:layout_height="49dp"
         android:layout_marginBottom="24dp"
-        android:onClick="Click"
         android:text="Register now"
         android:textAlignment="center"
         android:textColor="@color/blue"
