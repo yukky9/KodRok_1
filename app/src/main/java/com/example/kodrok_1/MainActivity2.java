@@ -26,7 +26,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     boolean isAdmin = false;
 
-    @SuppressLint({"WrongViewCast", "MissingInflatedId"})
+    @SuppressLint({"WrongViewCast", "MissingInflatedId", "CutPasteId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,7 @@ public class MainActivity2 extends AppCompatActivity {
         register = findViewById(R.id.imageButton);
         textView = findViewById(R.id.textView10);
         email_admin = findViewById(R.id.editTextTextEmailAddress2);
-        pswrd_admin = findViewById(R.id.editTextNumberPassword);
+        pswrd_admin = findViewById(R.id.editTextTextEmailAddress2);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,7 +65,7 @@ public class MainActivity2 extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity2.this, ProfileActivity.class);
                         startActivity(intent);
                     } else {
-                        Intent intent = new Intent(MainActivity2.this, MainActivity.class);
+                        Intent intent = new Intent(MainActivity2.this, WifiState.class);
                         startActivity(intent);
                     }
                 }
@@ -77,7 +77,6 @@ public class MainActivity2 extends AppCompatActivity {
                 bt1.setImageResource(R.drawable.rectangle_44);
                 bt2.setImageResource(R.drawable.rectangle_4);
                 email_admin.setHint("Enter the supervisor's email");
-                pswrd_admin.setHint("");
                 isAdmin = false;
             }
         });
@@ -87,7 +86,6 @@ public class MainActivity2 extends AppCompatActivity {
                 bt1.setImageResource(R.drawable.rectangle_4);
                 bt2.setImageResource(R.drawable.rectangle_44);
                 pswrd_admin.setHint("Enter code");
-                email_admin.setHint("");
                 isAdmin = true;
             }
         });

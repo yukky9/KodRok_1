@@ -81,8 +81,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/rectangle_3"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
         tools:ignore="MissingConstraints" />
 
@@ -171,19 +170,24 @@
         android:id="@+id/textView5"
         android:layout_width="103dp"
         android:layout_height="31dp"
-        android:layout_marginStart="96dp"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="40dp"
         android:text="New Member?"
         android:textAlignment="center"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.347"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView20"
         android:layout_width="131dp"
         android:layout_height="49dp"
+        android:layout_marginTop="29dp"
         android:layout_marginBottom="24dp"
         android:text="Register now"
         android:textAlignment="center"
@@ -194,6 +198,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
         tools:ignore="MissingConstraints,OnClick" />
 
 
