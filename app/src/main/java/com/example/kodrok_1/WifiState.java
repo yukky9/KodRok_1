@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,6 +36,7 @@ public class WifiState extends AppCompatActivity {
 
     private Button buttonState;
     private Button buttonScan;
+    ImageButton profile;
 
     private EditText editTextPassword;
     private LinearLayout linearLayoutScanResults;
@@ -42,6 +44,7 @@ public class WifiState extends AppCompatActivity {
 
     private WifiBroadcastReceiver wifiReceiver;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,7 @@ public class WifiState extends AppCompatActivity {
 
         // Instantiate broadcast receiver
         this.wifiReceiver = new WifiBroadcastReceiver();
+        profile = findViewById(R.id.imageButton3);
 
         // Register the receiver
         registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
@@ -62,6 +66,14 @@ public class WifiState extends AppCompatActivity {
         this.editTextPassword = (EditText) this.findViewById(R.id.editText_password);
         this.textViewScanResults = (TextView) this.findViewById(R.id.textView_scanResults);
         this.linearLayoutScanResults = (LinearLayout) this.findViewById(R.id.linearLayout_scanResults);
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(WifiState.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
         this.buttonState.setOnClickListener(new View.OnClickListener(){
 
