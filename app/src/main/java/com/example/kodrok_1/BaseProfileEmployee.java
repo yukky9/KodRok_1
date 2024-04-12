@@ -8,25 +8,24 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class BaseProfile extends AppCompatActivity {
-    ImageButton editProfile;
-    ImageButton listEmployees;
+public class BaseProfileEmployee extends AppCompatActivity {
 
+    ImageButton editProfile;
+    ImageButton wifi;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base_profile);
+        setContentView(R.layout.activity_base_profile_employee);
 
         editProfile = findViewById(R.id.imageButton6);
-        listEmployees = findViewById(R.id.imageButton7);
+        wifi = findViewById(R.id.imageButton7);
 
-
-        listEmployees.setOnClickListener(new View.OnClickListener() {
+        wifi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BaseProfile.this, ListEmployees.class);
+                Intent intent = new Intent(BaseProfileEmployee.this, WifiState.class);
                 startActivity(intent);
             }
         });
@@ -34,7 +33,7 @@ public class BaseProfile extends AppCompatActivity {
         editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(BaseProfile.this, ProfileActivity.class);
+                Intent intent = new Intent(BaseProfileEmployee.this, ProfileEmployee.class);
                 startActivity(intent);
             }
         });

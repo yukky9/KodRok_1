@@ -1,19 +1,21 @@
 package com.example.kodrok_1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity2 extends AppCompatActivity {
     ImageButton register;
@@ -32,6 +34,13 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://thereawheel3.pythonanywhere.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitInt retrofitInt = retrofit.create(RetrofitInt.class);
 
         bt1 = findViewById(R.id.imageButton4);
         email = findViewById(R.id.editTextTextEmailAddress1);
@@ -63,11 +72,41 @@ public class MainActivity2 extends AppCompatActivity {
                     Toast.makeText(MainActivity2.this, "Enter email admin to regist", Toast.LENGTH_SHORT).show();
                 } else {
                     if (isAdmin){
-                        Intent intent = new Intent(MainActivity2.this, ProfileActivity.class);
-                        startActivity(intent);
+                        Call<String> call = retrofitInt.register(email.getText().toString(),pswrd.getText().toString(),pswrd_admin.getText().toString(),"");
+                        call.enqueue(new Callback<String>() {
+                            @Override
+                            public void onResponse(Call<String> call, Response<String> response) {
+                                if (response.body().equals("success")){
+                                    Intent intent = new Intent(MainActivity2.this, ProfileActivity.class);
+                                    startActivity(intent);
+                                }else {
+                                    Toast.makeText(MainActivity2.this, "Такой пользователь уже есть!", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<String> call, Throwable t) {
+                                Toast.makeText(MainActivity2.this, "Ошибка на сервере", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     } else {
-                        Intent intent = new Intent(MainActivity2.this, WifiState.class);
-                        startActivity(intent);
+                        Call<String> call = retrofitInt.register(email.getText().toString(),pswrd.getText().toString(),"",email_admin.getText().toString());
+                        call.enqueue(new Callback<String>() {
+                            @Override
+                            public void onResponse(Call<String> call, Response<String> response) {
+                                if (response.body().equals("success")){
+                                    Intent intent = new Intent(MainActivity2.this, ProfileEmployee.class);
+                                    startActivity(intent);
+                                }else {
+                                    Toast.makeText(MainActivity2.this, "Такой пользователь уже есть!", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<String> call, Throwable t) {
+                                Toast.makeText(MainActivity2.this, "Ошибка на сервере", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
                 }
             }
