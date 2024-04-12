@@ -45,7 +45,7 @@ public class WifiState extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_wifi_state);
 
         this.wifiManager = (WifiManager) this.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
@@ -56,7 +56,7 @@ public class WifiState extends AppCompatActivity {
         registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
 
         //
-        this.buttonState = (Button) this.findViewById(R.id.button_state);
+        this.buttonState = this.findViewById(R.id.button_state);
         this.buttonScan = (Button) this.findViewById(R.id.button_scan);
 
         this.editTextPassword = (EditText) this.findViewById(R.id.editText_password);
@@ -116,21 +116,17 @@ public class WifiState extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         Log.d(LOG_TAG, "onRequestPermissionsResult");
 
-        switch (requestCode) {
-            case MY_REQUEST_CODE: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // permission was granted
-                    Log.d(LOG_TAG, "Permission Granted: " + permissions[0]);
+        if (requestCode == MY_REQUEST_CODE) {// If request is cancelled, the result arrays are empty.
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // permission was granted
+                Log.d(LOG_TAG, "Permission Granted: " + permissions[0]);
 
-                    // Start Scan Wifi.
-                    this.doStartScanWifi();
-                } else {
-                    // Permission denied, boo! Disable the
-                    // functionality that depends on this permission.
-                    Log.d(LOG_TAG, "Permission Denied: " + permissions[0]);
-                }
-                break;
+                // Start Scan Wifi.
+                this.doStartScanWifi();
+            } else {
+                // Permission denied, boo! Disable the
+                // functionality that depends on this permission.
+                Log.d(LOG_TAG, "Permission Denied: " + permissions[0]);
             }
             // Other 'case' lines to check for other
             // permissions this app might request.
@@ -202,7 +198,7 @@ public class WifiState extends AppCompatActivity {
             final String networkCapabilities = result.capabilities;
             final String networkSSID = result.SSID; // Network Name.
             //
-            Button button = new Button(this );
+            Button button = new Button(this);
 
             button.setText(networkSSID + " ("+networkCapabilities+")");
             this.linearLayoutScanResults.addView(button);

@@ -175,7 +175,7 @@
 
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/imageButt"
         android:layout_width="214dp"
         android:layout_height="68dp"
         android:background="@drawable/rectangle_2"
@@ -188,6 +188,7 @@
         app:layout_constraintVertical_bias="0.788"
         tools:ignore="HardcodedText,MissingConstraints" />
 
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="197dp"
@@ -197,12 +198,11 @@
         android:textColor="@color/white"
         android:textSize="36dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton"
-        app:layout_constraintStart_toStartOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButt"
+        app:layout_constraintEnd_toEndOf="@+id/imageButt"
+        app:layout_constraintStart_toStartOf="@+id/imageButt"
+        app:layout_constraintTop_toTopOf="@+id/imageButt"
         tools:ignore="MissingConstraints" />
-
 
     <TextView
         android:id="@+id/textView5"

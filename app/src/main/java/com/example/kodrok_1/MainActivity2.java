@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +37,7 @@ public class MainActivity2 extends AppCompatActivity {
         email = findViewById(R.id.editTextTextEmailAddress1);
         pswrd = findViewById(R.id.editTextTextPassword);
         bt2 = findViewById(R.id.imageButton2);
-        register = findViewById(R.id.imageButton);
+        register = findViewById(R.id.imageButt);
         textView = findViewById(R.id.textView10);
         email_admin = findViewById(R.id.editTextTextEmailAddress2);
         pswrd_admin = findViewById(R.id.editTextTextEmailAddress2);
